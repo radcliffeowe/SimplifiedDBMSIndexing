@@ -29,7 +29,7 @@ public class Main {
                         if (Objects.equals(operator, "=")) {
                             queryEngine.equalityQuery(Integer.parseInt(parsedInput[7]));
                         } else if (Objects.equals(operator, ">")) {
-
+                            queryEngine.rangeQuery(Integer.parseInt(parsedInput[7]), Integer.parseInt(parsedInput[11]));
                         } else {
 
                         }
