@@ -1,5 +1,6 @@
 package edu.db2;
 
+import java.util.Collections;
 import java.util.LinkedList;
 import java.util.Objects;
 
@@ -20,6 +21,7 @@ public class ArrayBasedIndex {
         }
         else{
             exists.add(recordLocation);
+            Collections.sort(exists);
         }
     }
 

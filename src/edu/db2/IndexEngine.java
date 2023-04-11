@@ -1,7 +1,6 @@
 package edu.db2;
 
 import java.io.*;
-import java.util.LinkedList;
 
 public class IndexEngine {
 
@@ -33,9 +32,22 @@ public class IndexEngine {
             }
             bufferedReader.close();
         }
-        System.out.println(hashBasedIndex.getHashIndex().get(4037).toString());
-        LinkedList<RecordLocation>[] arrayIndex = arrayBasedIndex.getArrayIndex();
-        System.out.println(arrayIndex[4036]);
 
+    }
+
+    public HashBasedIndex getHashBasedIndex() {
+        return hashBasedIndex;
+    }
+
+    public void setHashBasedIndex(HashBasedIndex hashBasedIndex) {
+        this.hashBasedIndex = hashBasedIndex;
+    }
+
+    public ArrayBasedIndex getArrayBasedIndex() {
+        return arrayBasedIndex;
+    }
+
+    public void setArrayBasedIndex(ArrayBasedIndex arrayBasedIndex) {
+        this.arrayBasedIndex = arrayBasedIndex;
     }
 }

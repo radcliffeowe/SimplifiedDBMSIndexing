@@ -1,5 +1,8 @@
 package edu.db2;
 
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.util.Objects;
 import java.util.Scanner;
 
 public class Main {
@@ -21,6 +24,19 @@ public class Main {
                     System.out.println("The hash-based and array-based indexes are built successfully.");
                     break;
                 case "SELECT":
+                    String operator = parsedInput[6];
+                    try {
+                        if (Objects.equals(operator, "=")) {
+                            queryEngine.equalityQuery(Integer.parseInt(parsedInput[7]));
+                        } else if (Objects.equals(operator, ">")) {
+
+                        } else {
+
+                        }
+                    } catch (IOException e){
+                        e.printStackTrace();
+                        System.exit(1);
+                    }
                     break;
                 case "EXIT":
                     loop = false;

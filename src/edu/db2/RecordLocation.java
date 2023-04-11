@@ -1,6 +1,6 @@
 package edu.db2;
 
-public class RecordLocation {
+public class RecordLocation implements Comparable<RecordLocation>{
 
     private int fileNumber;
     private int recordOffset;
@@ -24,5 +24,18 @@ public class RecordLocation {
 
     public void setRecordOffset(int recordOffset) {
         this.recordOffset = recordOffset;
+    }
+
+    @Override
+    public int compareTo(RecordLocation o){
+        if(fileNumber > o.fileNumber){
+            return 1;
+        }
+        else if(fileNumber == o.fileNumber){
+            return 0;
+        }
+        else{
+            return -1;
+        }
     }
 }

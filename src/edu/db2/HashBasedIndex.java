@@ -1,8 +1,6 @@
 package edu.db2;
 
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.Objects;
+import java.util.*;
 
 public class HashBasedIndex {
 
@@ -22,6 +20,7 @@ public class HashBasedIndex {
         }
         else{
             exists.add(recordLocation);
+            Collections.sort(exists);
             //hashIndex.put(randValue, exists);
         }
     }
