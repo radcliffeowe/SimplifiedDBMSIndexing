@@ -131,5 +131,34 @@ public class QueryEngine {
         System.out.println("Total time taken: " + timeTaken + " ms");
         System.out.println(blocksRead + " data files read");
     }
+
+    public void inequalityQuery(int searchValue) throws IOException {
+        long start = System.currentTimeMillis();
+        boolean indexUsed = false;
+        LinkedList<String> results = new LinkedList<>();
+        int blocksRead = 0;
+
+        for(int i = 1; i<100; i++){
+            blocksRead++;
+            File file = new File("Project2Dataset/F" + i + ".txt");
+            BufferedReader bufferedReader = new BufferedReader(new FileReader(file));
+
+            String content = bufferedReader.readLine();
+
+            for(int j = 0; j<4000; j+=40){
+                int randomValue = Integer.parseInt(content.substring(j + 33, j+37));
+                if(randomValue != searchValue){
+                    results.add(content.substring(j, j+40));
+                }
+            }
+            bufferedReader.close();
+        }
+        long timeTaken = System.currentTimeMillis()- start;
+        for(String s: results){
+            System.out.println(s);
+        }
+        System.out.println("Total time taken: " + timeTaken + " ms");
+        System.out.println(blocksRead + " data files read");
+    }
 }
 

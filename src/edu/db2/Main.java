@@ -31,7 +31,7 @@ public class Main {
                         } else if (Objects.equals(operator, ">")) {
                             queryEngine.rangeQuery(Integer.parseInt(parsedInput[7]), Integer.parseInt(parsedInput[11]));
                         } else {
-
+                            queryEngine.inequalityQuery(Integer.parseInt(parsedInput[7]));
                         }
                     } catch (IOException e){
                         e.printStackTrace();
