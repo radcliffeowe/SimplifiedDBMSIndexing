@@ -2,21 +2,29 @@ package edu.db2;
 
 import java.io.*;
 
+/**
+ * Class to create indexes over the dataset
+ */
 public class IndexEngine {
 
-    private HashBasedIndex hashBasedIndex;
-    private ArrayBasedIndex arrayBasedIndex;
+    private HashBasedIndex hashBasedIndex;   //index using a hash map
+    private ArrayBasedIndex arrayBasedIndex; //index using an array
 
     public IndexEngine() {
         this.hashBasedIndex = new HashBasedIndex();
         this.arrayBasedIndex = new ArrayBasedIndex();
         try {
-            this.createIndexes();
+            this.createIndexes(); //initialize the indexes
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
+    /**
+     * Method to create indexes over the data. Reads every file 1-99 and reads each record in the file and parses the random value
+     * Creates RecordLocation object and stores the record's file number and byte offset then adds it to both indexes
+     * @throws IOException
+     */
     private void createIndexes() throws IOException {
         for(int i = 1; i<100; i++){
             File file = new File("Project2Dataset/F" + i + ".txt");

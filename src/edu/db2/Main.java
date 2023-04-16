@@ -18,20 +18,20 @@ public class Main {
             String input = scanner.nextLine();
             String[] parsedInput = input.split("\\s+");
             switch(parsedInput[0]){
-                case "CREATE":
+                case "CREATE": //create a hash-based and array-based index over the data
                     indexEngine = new IndexEngine();
                     queryEngine.setIndexEngine(indexEngine);
                     System.out.println("The hash-based and array-based indexes are built successfully.");
                     break;
-                case "SELECT":
-                    String operator = parsedInput[6];
+                case "SELECT": //query the data
+                    String operator = parsedInput[6]; // check the operator of the query statement, either =, >, or !=
                     try {
                         if (Objects.equals(operator, "=")) {
-                            queryEngine.equalityQuery(Integer.parseInt(parsedInput[7]));
+                            queryEngine.equalityQuery(Integer.parseInt(parsedInput[7])); //run an equality query
                         } else if (Objects.equals(operator, ">")) {
-                            queryEngine.rangeQuery(Integer.parseInt(parsedInput[7]), Integer.parseInt(parsedInput[11]));
+                            queryEngine.rangeQuery(Integer.parseInt(parsedInput[7]), Integer.parseInt(parsedInput[11])); // run a range query
                         } else {
-                            queryEngine.inequalityQuery(Integer.parseInt(parsedInput[7]));
+                            queryEngine.inequalityQuery(Integer.parseInt(parsedInput[7])); //run an inequality query
                         }
                     } catch (IOException e){
                         e.printStackTrace();
