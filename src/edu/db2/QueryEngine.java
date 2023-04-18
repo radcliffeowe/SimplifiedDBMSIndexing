@@ -106,7 +106,7 @@ public class QueryEngine {
 
                 for(int j = 0; j<4000; j+=40){
                     int randomValue = Integer.parseInt(content.substring(j + 33, j+37));
-                    if(randomValue > lowerBound && randomValue < upperBound){
+                    if(randomValue >= lowerBound && randomValue <= upperBound){
                         results.add(content.substring(j, j+40));
                     }
                 }
@@ -119,7 +119,7 @@ public class QueryEngine {
             File file;
             String blockInMemory = "";
             int fileNumber = -1;
-            for(int i = lowerBound; i<=upperBound; i++){
+            for(int i = lowerBound-1; i<=upperBound-1; i++){
                 LinkedList<RecordLocation> entries = index.getArrayIndex()[i];
                 if(!Objects.isNull(entries)) {
                     for (RecordLocation recordLocation : entries) {
